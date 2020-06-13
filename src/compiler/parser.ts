@@ -3199,7 +3199,7 @@ namespace ts {
                     parseTokenNode<BooleanLiteral | NullLiteral>() :
                     parseLiteralLikeNode(token()) as LiteralExpression;
             if (negative) {
-                expression = finishNode(factory.createPrefix(SyntaxKind.MinusToken, expression), pos);
+                expression = finishNode(factory.createPrefixUnaryExpression(SyntaxKind.MinusToken, expression), pos);
             }
             return finishNode(factory.createLiteralTypeNode(expression), pos);
         }
@@ -3771,7 +3771,7 @@ namespace ts {
             if (!scanner.hasPrecedingLineBreak() &&
                 (token() === SyntaxKind.AsteriskToken || isStartOfExpression())) {
                 return finishNode(
-                    factory.createYield(
+                    factory.createYieldExpression(
                         parseOptionalToken(SyntaxKind.AsteriskToken),
                         parseAssignmentExpressionOrHigher()
                     ),
@@ -3781,7 +3781,7 @@ namespace ts {
             else {
                 // if the next token is not on the same line as yield.  or we don't have an '*' or
                 // the start of an expression, then this is just a simple "yield" expression.
-                return finishNode(factory.createYield(/*asteriskToken*/ undefined, /*expression*/ undefined), pos);
+                return finishNode(factory.createYieldExpression(/*asteriskToken*/ undefined, /*expression*/ undefined), pos);
             }
         }
 
@@ -4117,7 +4117,7 @@ namespace ts {
             // we do not that for the 'whenFalse' part.
             let colonToken;
             return finishNode(
-                factory.createConditional(
+                factory.createConditionalExpression(
                     leftOperand,
                     questionToken,
                     doOutsideOfContext(disallowInAndDecoratorContext, parseAssignmentExpressionOrHigher),
@@ -4212,7 +4212,7 @@ namespace ts {
         }
 
         function makeBinaryExpression(left: Expression, operatorToken: BinaryOperatorToken, right: Expression, pos: number): BinaryExpression {
-            return finishNode(factory.createBinary(left, operatorToken, right), pos);
+            return finishNode(factory.createBinaryExpression(left, operatorToken, right), pos);
         }
 
         function makeAsExpression(left: Expression, right: TypeNode): AsExpression {
@@ -4221,22 +4221,22 @@ namespace ts {
 
         function parsePrefixUnaryExpression() {
             const pos = getNodePos();
-            return finishNode(factory.createPrefix(<PrefixUnaryOperator>token(), nextTokenAnd(parseSimpleUnaryExpression)), pos);
+            return finishNode(factory.createPrefixUnaryExpression(<PrefixUnaryOperator>token(), nextTokenAnd(parseSimpleUnaryExpression)), pos);
         }
 
         function parseDeleteExpression() {
             const pos = getNodePos();
-            return finishNode(factory.createDelete(nextTokenAnd(parseSimpleUnaryExpression)), pos);
+            return finishNode(factory.createDeleteExpression(nextTokenAnd(parseSimpleUnaryExpression)), pos);
         }
 
         function parseTypeOfExpression() {
             const pos = getNodePos();
-            return finishNode(factory.createTypeOf(nextTokenAnd(parseSimpleUnaryExpression)), pos);
+            return finishNode(factory.createTypeOfExpression(nextTokenAnd(parseSimpleUnaryExpression)), pos);
         }
 
         function parseVoidExpression() {
             const pos = getNodePos();
-            return finishNode(factory.createVoid(nextTokenAnd(parseSimpleUnaryExpression)), pos);
+            return finishNode(factory.createVoidExpression(nextTokenAnd(parseSimpleUnaryExpression)), pos);
         }
 
         function isAwaitExpression(): boolean {
@@ -4254,7 +4254,7 @@ namespace ts {
 
         function parseAwaitExpression() {
             const pos = getNodePos();
-            return finishNode(factory.createAwait(nextTokenAnd(parseSimpleUnaryExpression)), pos);
+            return finishNode(factory.createAwaitExpression(nextTokenAnd(parseSimpleUnaryExpression)), pos);
         }
 
         /**
@@ -4399,7 +4399,7 @@ namespace ts {
         function parseUpdateExpression(): UpdateExpression {
             if (token() === SyntaxKind.PlusPlusToken || token() === SyntaxKind.MinusMinusToken) {
                 const pos = getNodePos();
-                return finishNode(factory.createPrefix(<PrefixUnaryOperator>token(), nextTokenAnd(parseLeftHandSideExpressionOrHigher)), pos);
+                return finishNode(factory.createPrefixUnaryExpression(<PrefixUnaryOperator>token(), nextTokenAnd(parseLeftHandSideExpressionOrHigher)), pos);
             }
             else if (languageVariant === LanguageVariant.JSX && token() === SyntaxKind.LessThanToken && lookAhead(nextTokenIsIdentifierOrKeywordOrGreaterThan)) {
                 // JSXElement is part of primaryExpression
@@ -4412,7 +4412,7 @@ namespace ts {
             if ((token() === SyntaxKind.PlusPlusToken || token() === SyntaxKind.MinusMinusToken) && !scanner.hasPrecedingLineBreak()) {
                 const operator = <PostfixUnaryOperator>token();
                 nextToken();
-                return finishNode(factory.createPostfix(expression, operator), expression.pos);
+                return finishNode(factory.createPostfixUnaryExpression(expression, operator), expression.pos);
             }
 
             return expression;
@@ -4555,7 +4555,7 @@ namespace ts {
             // If it wasn't then just try to parse out a '.' and report an error.
             parseExpectedToken(SyntaxKind.DotToken, Diagnostics.super_must_be_followed_by_an_argument_list_or_member_access);
             // private names will never work with `super` (`super.#foo`), but that's a semantic error, not syntactic
-            return finishNode(factory.createPropertyAccess(expression, parseRightSideOfDot(/*allowIdentifierNames*/ true, /*allowPrivateIdentifiers*/ true)), pos);
+            return finishNode(factory.createPropertyAccessExpression(expression, parseRightSideOfDot(/*allowIdentifierNames*/ true, /*allowPrivateIdentifiers*/ true)), pos);
         }
 
         function parseJsxElementOrSelfClosingElementOrFragment(inExpressionContext: boolean, topInvalidNodePosition?: number): JsxElement | JsxSelfClosingElement | JsxFragment {
@@ -4595,7 +4595,7 @@ namespace ts {
                     const operatorToken = createMissingNode(SyntaxKind.CommaToken, /*reportAtCurrentPosition*/ false);
                     setTextRangePosWidth(operatorToken, invalidElement.pos, 0);
                     parseErrorAt(skipTrivia(sourceText, topBadPos), invalidElement.end, Diagnostics.JSX_expressions_must_have_one_parent_element);
-                    return <JsxElement><Node>finishNode(factory.createBinary(result, operatorToken as Token<SyntaxKind.CommaToken>, invalidElement), pos);
+                    return <JsxElement><Node>finishNode(factory.createBinaryExpression(result, operatorToken as Token<SyntaxKind.CommaToken>, invalidElement), pos);
                 }
             }
 
@@ -4711,7 +4711,7 @@ namespace ts {
             let expression: JsxTagNameExpression = token() === SyntaxKind.ThisKeyword ?
                 parseTokenNode<ThisExpression>() : parseIdentifierName();
             while (parseOptional(SyntaxKind.DotToken)) {
-                expression = finishNode(factory.createPropertyAccess(expression, parseRightSideOfDot(/*allowIdentifierNames*/ true, /*allowPrivateIdentifiers*/ false)), pos) as JsxTagNamePropertyAccess;
+                expression = finishNode(factory.createPropertyAccessExpression(expression, parseRightSideOfDot(/*allowIdentifierNames*/ true, /*allowPrivateIdentifiers*/ false)), pos) as JsxTagNamePropertyAccess;
             }
             return expression;
         }
@@ -4848,7 +4848,7 @@ namespace ts {
             const isOptionalChain = questionDotToken || tryReparseOptionalChain(expression);
             const propertyAccess = isOptionalChain ?
                 factory.createPropertyAccessChain(expression, questionDotToken, name) :
-                factory.createPropertyAccess(expression, name);
+                factory.createPropertyAccessExpression(expression, name);
             if (isOptionalChain && isPrivateIdentifier(propertyAccess.name)) {
                 parseErrorAtRange(propertyAccess.name, Diagnostics.An_optional_chain_cannot_contain_private_identifiers);
             }
@@ -4872,7 +4872,7 @@ namespace ts {
 
             const indexedAccess = questionDotToken || tryReparseOptionalChain(expression) ?
                 factory.createElementAccessChain(expression, questionDotToken, argumentExpression) :
-                factory.createElementAccess(expression, argumentExpression);
+                factory.createElementAccessExpression(expression, argumentExpression);
             return finishNode(indexedAccess, pos);
         }
 
@@ -4919,7 +4919,7 @@ namespace ts {
         }
 
         function parseTaggedTemplateRest(pos: number, tag: LeftHandSideExpression, questionDotToken: QuestionDotToken | undefined, typeArguments: NodeArray<TypeNode> | undefined) {
-            const tagExpression = factory.createTaggedTemplate(
+            const tagExpression = factory.createTaggedTemplateExpression(
                 tag,
                 typeArguments,
                 token() === SyntaxKind.NoSubstitutionTemplateLiteral ?
@@ -4953,7 +4953,7 @@ namespace ts {
                         const argumentList = parseArgumentList();
                         const callExpr = questionDotToken || tryReparseOptionalChain(expression) ?
                             factory.createCallChain(expression, questionDotToken, typeArguments, argumentList) :
-                            factory.createCall(expression, typeArguments, argumentList);
+                            factory.createCallExpression(expression, typeArguments, argumentList);
                         expression = finishNode(callExpr, pos);
                         continue;
                     }
@@ -4962,7 +4962,7 @@ namespace ts {
                     const argumentList = parseArgumentList();
                     const callExpr = questionDotToken || tryReparseOptionalChain(expression) ?
                         factory.createCallChain(expression, questionDotToken, /*typeArguments*/ undefined, argumentList) :
-                        factory.createCall(expression, /*typeArguments*/ undefined, argumentList);
+                        factory.createCallExpression(expression, /*typeArguments*/ undefined, argumentList);
                     expression = finishNode(callExpr, pos);
                     continue;
                 }
@@ -5098,14 +5098,14 @@ namespace ts {
             parseExpected(SyntaxKind.OpenParenToken);
             const expression = allowInAnd(parseExpression);
             parseExpected(SyntaxKind.CloseParenToken);
-            return withJSDoc(finishNode(factory.createParen(expression), pos), hasJSDoc);
+            return withJSDoc(finishNode(factory.createParenthesizedExpression(expression), pos), hasJSDoc);
         }
 
         function parseSpreadElement(): Expression {
             const pos = getNodePos();
             parseExpected(SyntaxKind.DotDotDotToken);
             const expression = parseAssignmentExpressionOrHigher();
-            return finishNode(factory.createSpread(expression), pos);
+            return finishNode(factory.createSpreadElement(expression), pos);
         }
 
         function parseArgumentOrArrayLiteralElement(): Expression {
@@ -5124,7 +5124,7 @@ namespace ts {
             const multiLine = scanner.hasPrecedingLineBreak();
             const elements = parseDelimitedList(ParsingContext.ArrayLiteralMembers, parseArgumentOrArrayLiteralElement);
             parseExpected(SyntaxKind.CloseBracketToken);
-            return finishNode(factory.createArrayLiteral(elements, multiLine), pos);
+            return finishNode(factory.createArrayLiteralExpression(elements, multiLine), pos);
         }
 
         function parseObjectLiteralElement(): ObjectLiteralElementLike {
@@ -5201,7 +5201,7 @@ namespace ts {
                     );
                 }
             }
-            return finishNode(factory.createObjectLiteral(properties, multiLine), pos);
+            return finishNode(factory.createObjectLiteralExpression(properties, multiLine), pos);
         }
 
         function parseFunctionExpression(): FunctionExpression {
@@ -5275,7 +5275,7 @@ namespace ts {
             else if (typeArguments) {
                 parseErrorAt(pos, scanner.getStartPos(), Diagnostics.A_new_expression_with_type_arguments_must_always_be_followed_by_a_parenthesized_argument_list);
             }
-            return finishNode(factory.createNew(expression, typeArguments, argumentsArray), pos);
+            return finishNode(factory.createNewExpression(expression, typeArguments, argumentsArray), pos);
         }
 
         // STATEMENTS
@@ -5342,7 +5342,7 @@ namespace ts {
             parseExpected(SyntaxKind.CloseParenToken);
             const thenStatement = parseStatement();
             const elseStatement = parseOptional(SyntaxKind.ElseKeyword) ? parseStatement() : undefined;
-            return finishNode(factory.createIf(expression, thenStatement, elseStatement), pos);
+            return finishNode(factory.createIfStatement(expression, thenStatement, elseStatement), pos);
         }
 
         function parseDoStatement(): DoStatement {
@@ -5359,7 +5359,7 @@ namespace ts {
             // spec but allowed in consensus reality. Approved -- this is the de-facto standard whereby
             //  do;while(0)x will have a semicolon inserted before x.
             parseOptional(SyntaxKind.SemicolonToken);
-            return finishNode(factory.createDo(statement, expression), pos);
+            return finishNode(factory.createDoStatement(statement, expression), pos);
         }
 
         function parseWhileStatement(): WhileStatement {
@@ -5369,7 +5369,7 @@ namespace ts {
             const expression = allowInAnd(parseExpression);
             parseExpected(SyntaxKind.CloseParenToken);
             const statement = parseStatement();
-            return finishNode(factory.createWhile(expression, statement), pos);
+            return finishNode(factory.createWhileStatement(expression, statement), pos);
         }
 
         function parseForOrForInOrForOfStatement(): Statement {
@@ -5392,12 +5392,12 @@ namespace ts {
             if (awaitToken ? parseExpected(SyntaxKind.OfKeyword) : parseOptional(SyntaxKind.OfKeyword)) {
                 const expression = allowInAnd(parseAssignmentExpressionOrHigher);
                 parseExpected(SyntaxKind.CloseParenToken);
-                node = factory.createForOf(awaitToken, initializer, expression, parseStatement());
+                node = factory.createForOfStatement(awaitToken, initializer, expression, parseStatement());
             }
             else if (parseOptional(SyntaxKind.InKeyword)) {
                 const expression = allowInAnd(parseExpression);
                 parseExpected(SyntaxKind.CloseParenToken);
-                node = factory.createForIn(initializer, expression, parseStatement());
+                node = factory.createForInStatement(initializer, expression, parseStatement());
             }
             else {
                 parseExpected(SyntaxKind.SemicolonToken);
@@ -5409,7 +5409,7 @@ namespace ts {
                     ? allowInAnd(parseExpression)
                     : undefined;
                 parseExpected(SyntaxKind.CloseParenToken);
-                node = factory.createFor(initializer, condition, incrementor, parseStatement());
+                node = factory.createForStatement(initializer, condition, incrementor, parseStatement());
             }
 
             return finishNode(node, pos);
@@ -5423,8 +5423,8 @@ namespace ts {
 
             parseSemicolon();
             const node = kind === SyntaxKind.BreakStatement
-                ? factory.createBreak(label)
-                : factory.createContinue(label);
+                ? factory.createBreakStatement(label)
+                : factory.createContinueStatement(label);
             return finishNode(node, pos);
         }
 
@@ -5433,7 +5433,7 @@ namespace ts {
             parseExpected(SyntaxKind.ReturnKeyword);
             const expression = canParseSemicolon() ? undefined : allowInAnd(parseExpression);
             parseSemicolon();
-            return finishNode(factory.createReturn(expression), pos);
+            return finishNode(factory.createReturnStatement(expression), pos);
         }
 
         function parseWithStatement(): WithStatement {
@@ -5443,7 +5443,7 @@ namespace ts {
             const expression = allowInAnd(parseExpression);
             parseExpected(SyntaxKind.CloseParenToken);
             const statement = doInsideOfContext(NodeFlags.InWithStatement, parseStatement);
-            return finishNode(factory.createWith(expression, statement), pos);
+            return finishNode(factory.createWithStatement(expression, statement), pos);
         }
 
         function parseCaseClause(): CaseClause {
@@ -5482,7 +5482,7 @@ namespace ts {
             const expression = allowInAnd(parseExpression);
             parseExpected(SyntaxKind.CloseParenToken);
             const caseBlock = parseCaseBlock();
-            return finishNode(factory.createSwitch(expression, caseBlock), pos);
+            return finishNode(factory.createSwitchStatement(expression, caseBlock), pos);
         }
 
         function parseThrowStatement(): ThrowStatement {
@@ -5500,7 +5500,7 @@ namespace ts {
             // TODO(rbuckton): Should we use `createMissingNode` here instead?
             const expression = scanner.hasPrecedingLineBreak() ? undefined : allowInAnd(parseExpression);
             parseSemicolon();
-            return finishNode(factory.createThrow(expression!), pos);
+            return finishNode(factory.createThrowStatement(expression!), pos);
         }
 
         // TODO: Review for error recovery
@@ -5519,7 +5519,7 @@ namespace ts {
                 finallyBlock = parseBlock(/*ignoreMissingOpenBrace*/ false);
             }
 
-            return finishNode(factory.createTry(tryBlock, catchClause, finallyBlock), pos);
+            return finishNode(factory.createTryStatement(tryBlock, catchClause, finallyBlock), pos);
         }
 
         function parseCatchClause(): CatchClause {
@@ -5557,7 +5557,7 @@ namespace ts {
             const hasParen = token() === SyntaxKind.OpenParenToken;
             const expression = allowInAnd(parseExpression);
             if (ts.isIdentifier(expression) && parseOptional(SyntaxKind.ColonToken)) {
-                node = factory.createLabel(expression, parseStatement());
+                node = factory.createLabeledStatement(expression, parseStatement());
             }
             else {
                 parseSemicolon();
@@ -7529,7 +7529,7 @@ namespace ts {
                     let node: Identifier | PropertyAccessEntityNameExpression = parseJSDocIdentifierName();
                     while (parseOptional(SyntaxKind.DotToken)) {
                         const name = parseJSDocIdentifierName();
-                        node = finishNode(factory.createPropertyAccess(node, name), pos) as PropertyAccessEntityNameExpression;
+                        node = finishNode(factory.createPropertyAccessExpression(node, name), pos) as PropertyAccessEntityNameExpression;
                     }
                     return node;
                 }
