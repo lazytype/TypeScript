@@ -1,0 +1,201 @@
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(125,28): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Property '[Symbol.hasInstance]' is optional in type 'IBad1' but required in type 'HasInstanceCheckable'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(126,28): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Types of property '[Symbol.hasInstance]' are incompatible.
+    Type 'unknown' is not assignable to type '(value: any) => boolean'.
+      Type '{}' provides no match for the signature '(value: any): boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(127,28): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Types of property '[Symbol.hasInstance]' are incompatible.
+    Type 'number' is not assignable to type '(value: any) => boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(128,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Types of property '[Symbol.hasInstance]' are incompatible.
+    Type '(value: any, value2: any) => boolean' is not assignable to type '(value: any) => boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(129,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Types of property '[Symbol.hasInstance]' are incompatible.
+    Type '(value: any, rest_0: any) => boolean' is not assignable to type '(value: any) => boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(130,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  Types of property '[Symbol.hasInstance]' are incompatible.
+    Type '(rest_0: any, rest_1: any) => boolean' is not assignable to type '(value: any) => boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(131,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+    Type 'unknown' is not assignable to type 'boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(132,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+    Type 'number' is not assignable to type 'boolean'.
+tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts(133,31): error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+  The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+    Type 'number | true' is not assignable to type 'boolean'.
+      Type 'number' is not assignable to type 'boolean'.
+
+
+==== tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts (9 errors) ====
+    interface IOk1 {
+        [Symbol.hasInstance](value: any): boolean;
+    }
+    
+    interface IOk2 {
+        [Symbol.hasInstance]: any;
+    }
+    
+    interface IOk3 {
+        [Symbol.hasInstance]: never;
+    }
+    
+    interface IArgOk1 {
+        [Symbol.hasInstance](): boolean;
+    }
+    
+    interface IArgOk2 {
+        [Symbol.hasInstance](value: any, value2?: any): boolean;
+    }
+    
+    interface IArgOk3 {
+        [Symbol.hasInstance](value: any, ...rest: any): boolean;
+    }
+    
+    interface IArgOk4 {
+        [Symbol.hasInstance](...rest: any): boolean;
+    }
+    
+    interface IArgOk5 {
+        [Symbol.hasInstance](...rest: [any]): boolean;
+    }
+    
+    interface IRetOk1 {
+        [Symbol.hasInstance](value: any): true;
+    }
+    
+    interface IRetOk2 {
+        [Symbol.hasInstance](value: any): false;
+    }
+    
+    interface IRetOk3 {
+        [Symbol.hasInstance](value: any): any;
+    }
+    
+    interface IRetOk4 {
+        [Symbol.hasInstance](value: any): never;
+    }
+    
+    interface IRetOk5 {
+        [Symbol.hasInstance](...rest: [any]): true | false;
+    }
+    
+    interface IBad1 {
+        [Symbol.hasInstance]?: (value: any) => boolean;
+    }
+    
+    interface IBad2 {
+        [Symbol.hasInstance]: unknown;
+    }
+    
+    interface IBad3 {
+        [Symbol.hasInstance]: number;
+    }
+    
+    interface IArgBad1 {
+        [Symbol.hasInstance](value: any, value2: any): boolean;
+    }
+    
+    interface IArgBad2 {
+        [Symbol.hasInstance](value: any, ...rest: [any]): boolean;
+    }
+    
+    interface IArgBad3 {
+        [Symbol.hasInstance](...rest: [any, any]): boolean;
+    }
+    
+    interface IRetBad1 {
+        [Symbol.hasInstance](value: any): unknown;
+    }
+    
+    interface IRetBad2 {
+        [Symbol.hasInstance](value: any): number;
+    }
+    
+    interface IRetBad3 {
+        [Symbol.hasInstance](...rest: [any]): true | number;
+    }
+    
+    let x: any;
+    let iOk1: IOk1;
+    let iOk2: IOk2;
+    let iOk3: IOk3;
+    let iArgOk1: IArgOk1;
+    let iArgOk2: IArgOk2;
+    let iArgOk3: IArgOk3;
+    let iArgOk4: IArgOk4;
+    let iArgOk5: IArgOk5;
+    let iRetOk1: IRetOk1;
+    let iRetOk2: IRetOk2;
+    let iRetOk3: IRetOk3;
+    let iRetOk4: IRetOk4;
+    let iRetOk5: IRetOk5;
+    let iBad1: IBad1;
+    let iBad2: IBad2;
+    let iBad3: IBad3;
+    let iArgBad1: IArgBad1;
+    let iArgBad2: IArgBad2;
+    let iArgBad3: IArgBad3;
+    let iRetBad1: IRetBad1;
+    let iRetBad2: IRetBad2;
+    let iRetBad3: IRetBad3;
+    const rOk1 = x instanceof iOk1;
+    const rOk2 = x instanceof iOk2;
+    const rOk3 = x instanceof iOk3;
+    const rArgOk1 = x instanceof iArgOk1;
+    const rArgOk2 = x instanceof iArgOk2;
+    const rArgOk3 = x instanceof iArgOk3;
+    const rArgOk4 = x instanceof iArgOk4;
+    const rArgOk5 = x instanceof iArgOk5;
+    const rRetOk1 = x instanceof iRetOk1;
+    const rRetOk2 = x instanceof iRetOk2;
+    const rRetOk3 = x instanceof iRetOk3;
+    const rRetOk4 = x instanceof iRetOk4;
+    const rRetOk5 = x instanceof iRetOk5;
+    const rBad1 = x instanceof iBad1;
+                               ~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Property '[Symbol.hasInstance]' is optional in type 'IBad1' but required in type 'HasInstanceCheckable'.
+    const rBad2 = x instanceof iBad2;
+                               ~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Types of property '[Symbol.hasInstance]' are incompatible.
+!!! error TS2359:     Type 'unknown' is not assignable to type '(value: any) => boolean'.
+!!! error TS2359:       Type '{}' provides no match for the signature '(value: any): boolean'.
+    const rBad3 = x instanceof iBad3;
+                               ~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Types of property '[Symbol.hasInstance]' are incompatible.
+!!! error TS2359:     Type 'number' is not assignable to type '(value: any) => boolean'.
+    const rArgBad1 = x instanceof iArgBad1;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Types of property '[Symbol.hasInstance]' are incompatible.
+!!! error TS2359:     Type '(value: any, value2: any) => boolean' is not assignable to type '(value: any) => boolean'.
+    const rArgBad2 = x instanceof iArgBad2;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Types of property '[Symbol.hasInstance]' are incompatible.
+!!! error TS2359:     Type '(value: any, rest_0: any) => boolean' is not assignable to type '(value: any) => boolean'.
+    const rArgBad3 = x instanceof iArgBad3;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   Types of property '[Symbol.hasInstance]' are incompatible.
+!!! error TS2359:     Type '(rest_0: any, rest_1: any) => boolean' is not assignable to type '(value: any) => boolean'.
+    const rRetBad1 = x instanceof iRetBad1;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+!!! error TS2359:     Type 'unknown' is not assignable to type 'boolean'.
+    const rRetBad2 = x instanceof iRetBad2;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+!!! error TS2359:     Type 'number' is not assignable to type 'boolean'.
+    const rRetBad3 = x instanceof iRetBad3;
+                                  ~~~~~~~~
+!!! error TS2359: The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.
+!!! error TS2359:   The types returned by '[Symbol.hasInstance](...)' are incompatible between these types.
+!!! error TS2359:     Type 'number | true' is not assignable to type 'boolean'.
+!!! error TS2359:       Type 'number' is not assignable to type 'boolean'.

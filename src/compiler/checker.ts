@@ -879,6 +879,7 @@ namespace ts {
         let deferredGlobalExtractSymbol: Symbol;
         let deferredGlobalOmitSymbol: Symbol;
         let deferredGlobalBigIntType: ObjectType;
+        let deferredGlobalHasInstanceCheckableType: ObjectType | undefined;
 
         const allPotentiallyUnusedIdentifiers = createMap<PotentiallyUnusedIdentifier[]>(); // key is file name
 
@@ -12165,6 +12166,10 @@ namespace ts {
 
         function getGlobalIteratorReturnResultType(reportErrors: boolean) {
             return deferredGlobalIteratorReturnResultType || (deferredGlobalIteratorReturnResultType = getGlobalType("IteratorReturnResult" as __String, /*arity*/ 1, reportErrors)) || emptyGenericType;
+        }
+
+        function getGlobalHasInstanceCheckableType(reportErrors: boolean): ObjectType | undefined {
+            return deferredGlobalHasInstanceCheckableType || (deferredGlobalHasInstanceCheckableType = getGlobalType("HasInstanceCheckable" as __String, /*arity*/ 0, reportErrors));
         }
 
         function getGlobalTypeOrUndefined(name: __String, arity = 0): ObjectType | undefined {
@@ -28289,7 +28294,8 @@ namespace ts {
             }
             // TypeScript 1.0 spec (April 2014): 4.15.4
             // The instanceof operator requires the left operand to be of type Any, an object type, or a type parameter type,
-            // and the right operand to be of type Any, a subtype of the 'Function' interface type, or have a call or construct signature.
+            // and the right operand to be of type Any, a subtype of the 'Function' interface type,
+            // a subtype of the 'HasInstanceCheckable' interface type, or have a call or construct signature.
             // The result is always of the Boolean primitive type.
             // NOTE: do not raise error if leftType is unknown as related error was already reported
             if (!isTypeAny(leftType) &&
@@ -28297,8 +28303,15 @@ namespace ts {
                 error(left, Diagnostics.The_left_hand_side_of_an_instanceof_expression_must_be_of_type_any_an_object_type_or_a_type_parameter);
             }
             // NOTE: do not raise error if right is unknown as related error was already reported
-            if (!(isTypeAny(rightType) || typeHasCallOrConstructSignatures(rightType) || isTypeSubtypeOf(rightType, globalFunctionType))) {
-                error(right, Diagnostics.The_right_hand_side_of_an_instanceof_expression_must_be_of_type_any_or_of_a_type_assignable_to_the_Function_interface_type);
+            if (!(isTypeAny(rightType) || typeHasCallOrConstructSignatures(rightType) || isTypeAssignableTo(rightType, globalFunctionType))) {
+                const message = Diagnostics.The_right_hand_side_of_an_instanceof_expression_must_be_of_type_any_a_function_or_of_a_type_assignable_to_the_HasInstanceCheckable_interface_type;
+                const globalHasInstanceCheckableType = getGlobalHasInstanceCheckableType(/*reportErrors*/ false);
+                if (globalHasInstanceCheckableType) {
+                    checkTypeAssignableTo(rightType, globalHasInstanceCheckableType, right, message);
+                }
+                else {
+                    error(right, message);
+                }
             }
             return booleanType;
         }

@@ -1425,7 +1425,7 @@
         "category": "Error",
         "code": 2358
     },
-    "The right-hand side of an 'instanceof' expression must be of type 'any' or of a type assignable to the 'Function' interface type.": {
+    "The right-hand side of an 'instanceof' expression must be of type 'any', a function, or of a type assignable to the 'HasInstanceCheckable' interface type.": {
         "category": "Error",
         "code": 2359
     },

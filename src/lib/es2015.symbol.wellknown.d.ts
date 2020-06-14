@@ -126,6 +126,10 @@ interface JSON {
     readonly [Symbol.toStringTag]: string;
 }
 
+interface HasInstanceCheckable {
+    [Symbol.hasInstance](value: any): boolean;
+}
+
 interface Function {
     /**
      * Determines whether the given value inherits from this function if this function was used

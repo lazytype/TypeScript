@@ -1,0 +1,404 @@
+=== tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts ===
+interface IOk1 {
+    [Symbol.hasInstance](value: any): boolean;
+>[Symbol.hasInstance] : (value: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IOk2 {
+    [Symbol.hasInstance]: any;
+>[Symbol.hasInstance] : any
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+}
+
+interface IOk3 {
+    [Symbol.hasInstance]: never;
+>[Symbol.hasInstance] : never
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+}
+
+interface IArgOk1 {
+    [Symbol.hasInstance](): boolean;
+>[Symbol.hasInstance] : () => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+}
+
+interface IArgOk2 {
+    [Symbol.hasInstance](value: any, value2?: any): boolean;
+>[Symbol.hasInstance] : (value: any, value2?: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>value2 : any
+}
+
+interface IArgOk3 {
+    [Symbol.hasInstance](value: any, ...rest: any): boolean;
+>[Symbol.hasInstance] : (value: any, ...rest: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>rest : any
+}
+
+interface IArgOk4 {
+    [Symbol.hasInstance](...rest: any): boolean;
+>[Symbol.hasInstance] : (...rest: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>rest : any
+}
+
+interface IArgOk5 {
+    [Symbol.hasInstance](...rest: [any]): boolean;
+>[Symbol.hasInstance] : (rest_0: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>rest : [any]
+}
+
+interface IRetOk1 {
+    [Symbol.hasInstance](value: any): true;
+>[Symbol.hasInstance] : (value: any) => true
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>true : true
+}
+
+interface IRetOk2 {
+    [Symbol.hasInstance](value: any): false;
+>[Symbol.hasInstance] : (value: any) => false
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>false : false
+}
+
+interface IRetOk3 {
+    [Symbol.hasInstance](value: any): any;
+>[Symbol.hasInstance] : (value: any) => any
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IRetOk4 {
+    [Symbol.hasInstance](value: any): never;
+>[Symbol.hasInstance] : (value: any) => never
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IRetOk5 {
+    [Symbol.hasInstance](...rest: [any]): true | false;
+>[Symbol.hasInstance] : (rest_0: any) => true | false
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>rest : [any]
+>true : true
+>false : false
+}
+
+interface IBad1 {
+    [Symbol.hasInstance]?: (value: any) => boolean;
+>[Symbol.hasInstance] : (value: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IBad2 {
+    [Symbol.hasInstance]: unknown;
+>[Symbol.hasInstance] : unknown
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+}
+
+interface IBad3 {
+    [Symbol.hasInstance]: number;
+>[Symbol.hasInstance] : number
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+}
+
+interface IArgBad1 {
+    [Symbol.hasInstance](value: any, value2: any): boolean;
+>[Symbol.hasInstance] : (value: any, value2: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>value2 : any
+}
+
+interface IArgBad2 {
+    [Symbol.hasInstance](value: any, ...rest: [any]): boolean;
+>[Symbol.hasInstance] : (value: any, rest_0: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+>rest : [any]
+}
+
+interface IArgBad3 {
+    [Symbol.hasInstance](...rest: [any, any]): boolean;
+>[Symbol.hasInstance] : (rest_0: any, rest_1: any) => boolean
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>rest : [any, any]
+}
+
+interface IRetBad1 {
+    [Symbol.hasInstance](value: any): unknown;
+>[Symbol.hasInstance] : (value: any) => unknown
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IRetBad2 {
+    [Symbol.hasInstance](value: any): number;
+>[Symbol.hasInstance] : (value: any) => number
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>value : any
+}
+
+interface IRetBad3 {
+    [Symbol.hasInstance](...rest: [any]): true | number;
+>[Symbol.hasInstance] : (rest_0: any) => true | number
+>Symbol.hasInstance : symbol
+>Symbol : SymbolConstructor
+>hasInstance : symbol
+>rest : [any]
+>true : true
+}
+
+let x: any;
+>x : any
+
+let iOk1: IOk1;
+>iOk1 : IOk1
+
+let iOk2: IOk2;
+>iOk2 : IOk2
+
+let iOk3: IOk3;
+>iOk3 : IOk3
+
+let iArgOk1: IArgOk1;
+>iArgOk1 : IArgOk1
+
+let iArgOk2: IArgOk2;
+>iArgOk2 : IArgOk2
+
+let iArgOk3: IArgOk3;
+>iArgOk3 : IArgOk3
+
+let iArgOk4: IArgOk4;
+>iArgOk4 : IArgOk4
+
+let iArgOk5: IArgOk5;
+>iArgOk5 : IArgOk5
+
+let iRetOk1: IRetOk1;
+>iRetOk1 : IRetOk1
+
+let iRetOk2: IRetOk2;
+>iRetOk2 : IRetOk2
+
+let iRetOk3: IRetOk3;
+>iRetOk3 : IRetOk3
+
+let iRetOk4: IRetOk4;
+>iRetOk4 : IRetOk4
+
+let iRetOk5: IRetOk5;
+>iRetOk5 : IRetOk5
+
+let iBad1: IBad1;
+>iBad1 : IBad1
+
+let iBad2: IBad2;
+>iBad2 : IBad2
+
+let iBad3: IBad3;
+>iBad3 : IBad3
+
+let iArgBad1: IArgBad1;
+>iArgBad1 : IArgBad1
+
+let iArgBad2: IArgBad2;
+>iArgBad2 : IArgBad2
+
+let iArgBad3: IArgBad3;
+>iArgBad3 : IArgBad3
+
+let iRetBad1: IRetBad1;
+>iRetBad1 : IRetBad1
+
+let iRetBad2: IRetBad2;
+>iRetBad2 : IRetBad2
+
+let iRetBad3: IRetBad3;
+>iRetBad3 : IRetBad3
+
+const rOk1 = x instanceof iOk1;
+>rOk1 : boolean
+>x instanceof iOk1 : boolean
+>x : any
+>iOk1 : IOk1
+
+const rOk2 = x instanceof iOk2;
+>rOk2 : boolean
+>x instanceof iOk2 : boolean
+>x : any
+>iOk2 : IOk2
+
+const rOk3 = x instanceof iOk3;
+>rOk3 : boolean
+>x instanceof iOk3 : boolean
+>x : any
+>iOk3 : IOk3
+
+const rArgOk1 = x instanceof iArgOk1;
+>rArgOk1 : boolean
+>x instanceof iArgOk1 : boolean
+>x : any
+>iArgOk1 : IArgOk1
+
+const rArgOk2 = x instanceof iArgOk2;
+>rArgOk2 : boolean
+>x instanceof iArgOk2 : boolean
+>x : any
+>iArgOk2 : IArgOk2
+
+const rArgOk3 = x instanceof iArgOk3;
+>rArgOk3 : boolean
+>x instanceof iArgOk3 : boolean
+>x : any
+>iArgOk3 : IArgOk3
+
+const rArgOk4 = x instanceof iArgOk4;
+>rArgOk4 : boolean
+>x instanceof iArgOk4 : boolean
+>x : any
+>iArgOk4 : IArgOk4
+
+const rArgOk5 = x instanceof iArgOk5;
+>rArgOk5 : boolean
+>x instanceof iArgOk5 : boolean
+>x : any
+>iArgOk5 : IArgOk5
+
+const rRetOk1 = x instanceof iRetOk1;
+>rRetOk1 : boolean
+>x instanceof iRetOk1 : boolean
+>x : any
+>iRetOk1 : IRetOk1
+
+const rRetOk2 = x instanceof iRetOk2;
+>rRetOk2 : boolean
+>x instanceof iRetOk2 : boolean
+>x : any
+>iRetOk2 : IRetOk2
+
+const rRetOk3 = x instanceof iRetOk3;
+>rRetOk3 : boolean
+>x instanceof iRetOk3 : boolean
+>x : any
+>iRetOk3 : IRetOk3
+
+const rRetOk4 = x instanceof iRetOk4;
+>rRetOk4 : boolean
+>x instanceof iRetOk4 : boolean
+>x : any
+>iRetOk4 : IRetOk4
+
+const rRetOk5 = x instanceof iRetOk5;
+>rRetOk5 : boolean
+>x instanceof iRetOk5 : boolean
+>x : any
+>iRetOk5 : IRetOk5
+
+const rBad1 = x instanceof iBad1;
+>rBad1 : boolean
+>x instanceof iBad1 : boolean
+>x : any
+>iBad1 : IBad1
+
+const rBad2 = x instanceof iBad2;
+>rBad2 : boolean
+>x instanceof iBad2 : boolean
+>x : any
+>iBad2 : IBad2
+
+const rBad3 = x instanceof iBad3;
+>rBad3 : boolean
+>x instanceof iBad3 : boolean
+>x : any
+>iBad3 : IBad3
+
+const rArgBad1 = x instanceof iArgBad1;
+>rArgBad1 : boolean
+>x instanceof iArgBad1 : boolean
+>x : any
+>iArgBad1 : IArgBad1
+
+const rArgBad2 = x instanceof iArgBad2;
+>rArgBad2 : boolean
+>x instanceof iArgBad2 : boolean
+>x : any
+>iArgBad2 : IArgBad2
+
+const rArgBad3 = x instanceof iArgBad3;
+>rArgBad3 : boolean
+>x instanceof iArgBad3 : boolean
+>x : any
+>iArgBad3 : IArgBad3
+
+const rRetBad1 = x instanceof iRetBad1;
+>rRetBad1 : boolean
+>x instanceof iRetBad1 : boolean
+>x : any
+>iRetBad1 : IRetBad1
+
+const rRetBad2 = x instanceof iRetBad2;
+>rRetBad2 : boolean
+>x instanceof iRetBad2 : boolean
+>x : any
+>iRetBad2 : IRetBad2
+
+const rRetBad3 = x instanceof iRetBad3;
+>rRetBad3 : boolean
+>x instanceof iRetBad3 : boolean
+>x : any
+>iRetBad3 : IRetBad3
+

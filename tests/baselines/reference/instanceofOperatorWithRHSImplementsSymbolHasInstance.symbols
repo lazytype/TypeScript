@@ -1,0 +1,443 @@
+=== tests/cases/conformance/expressions/binaryOperators/instanceofOperator/instanceofOperatorWithRHSImplementsSymbolHasInstance.ts ===
+interface IOk1 {
+>IOk1 : Symbol(IOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 0, 0))
+
+    [Symbol.hasInstance](value: any): boolean;
+>[Symbol.hasInstance] : Symbol(IOk1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 0, 16))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 1, 25))
+}
+
+interface IOk2 {
+>IOk2 : Symbol(IOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 2, 1))
+
+    [Symbol.hasInstance]: any;
+>[Symbol.hasInstance] : Symbol(IOk2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 4, 16))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+}
+
+interface IOk3 {
+>IOk3 : Symbol(IOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 6, 1))
+
+    [Symbol.hasInstance]: never;
+>[Symbol.hasInstance] : Symbol(IOk3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 8, 16))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+}
+
+interface IArgOk1 {
+>IArgOk1 : Symbol(IArgOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 10, 1))
+
+    [Symbol.hasInstance](): boolean;
+>[Symbol.hasInstance] : Symbol(IArgOk1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 12, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+}
+
+interface IArgOk2 {
+>IArgOk2 : Symbol(IArgOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 14, 1))
+
+    [Symbol.hasInstance](value: any, value2?: any): boolean;
+>[Symbol.hasInstance] : Symbol(IArgOk2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 16, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 17, 25))
+>value2 : Symbol(value2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 17, 36))
+}
+
+interface IArgOk3 {
+>IArgOk3 : Symbol(IArgOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 18, 1))
+
+    [Symbol.hasInstance](value: any, ...rest: any): boolean;
+>[Symbol.hasInstance] : Symbol(IArgOk3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 20, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 21, 25))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 21, 36))
+}
+
+interface IArgOk4 {
+>IArgOk4 : Symbol(IArgOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 22, 1))
+
+    [Symbol.hasInstance](...rest: any): boolean;
+>[Symbol.hasInstance] : Symbol(IArgOk4[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 24, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 25, 25))
+}
+
+interface IArgOk5 {
+>IArgOk5 : Symbol(IArgOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 26, 1))
+
+    [Symbol.hasInstance](...rest: [any]): boolean;
+>[Symbol.hasInstance] : Symbol(IArgOk5[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 28, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 29, 25))
+}
+
+interface IRetOk1 {
+>IRetOk1 : Symbol(IRetOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 30, 1))
+
+    [Symbol.hasInstance](value: any): true;
+>[Symbol.hasInstance] : Symbol(IRetOk1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 32, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 33, 25))
+}
+
+interface IRetOk2 {
+>IRetOk2 : Symbol(IRetOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 34, 1))
+
+    [Symbol.hasInstance](value: any): false;
+>[Symbol.hasInstance] : Symbol(IRetOk2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 36, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 37, 25))
+}
+
+interface IRetOk3 {
+>IRetOk3 : Symbol(IRetOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 38, 1))
+
+    [Symbol.hasInstance](value: any): any;
+>[Symbol.hasInstance] : Symbol(IRetOk3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 40, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 41, 25))
+}
+
+interface IRetOk4 {
+>IRetOk4 : Symbol(IRetOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 42, 1))
+
+    [Symbol.hasInstance](value: any): never;
+>[Symbol.hasInstance] : Symbol(IRetOk4[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 44, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 45, 25))
+}
+
+interface IRetOk5 {
+>IRetOk5 : Symbol(IRetOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 46, 1))
+
+    [Symbol.hasInstance](...rest: [any]): true | false;
+>[Symbol.hasInstance] : Symbol(IRetOk5[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 48, 19))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 49, 25))
+}
+
+interface IBad1 {
+>IBad1 : Symbol(IBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 50, 1))
+
+    [Symbol.hasInstance]?: (value: any) => boolean;
+>[Symbol.hasInstance] : Symbol(IBad1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 52, 17))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 53, 28))
+}
+
+interface IBad2 {
+>IBad2 : Symbol(IBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 54, 1))
+
+    [Symbol.hasInstance]: unknown;
+>[Symbol.hasInstance] : Symbol(IBad2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 56, 17))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+}
+
+interface IBad3 {
+>IBad3 : Symbol(IBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 58, 1))
+
+    [Symbol.hasInstance]: number;
+>[Symbol.hasInstance] : Symbol(IBad3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 60, 17))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+}
+
+interface IArgBad1 {
+>IArgBad1 : Symbol(IArgBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 62, 1))
+
+    [Symbol.hasInstance](value: any, value2: any): boolean;
+>[Symbol.hasInstance] : Symbol(IArgBad1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 64, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 65, 25))
+>value2 : Symbol(value2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 65, 36))
+}
+
+interface IArgBad2 {
+>IArgBad2 : Symbol(IArgBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 66, 1))
+
+    [Symbol.hasInstance](value: any, ...rest: [any]): boolean;
+>[Symbol.hasInstance] : Symbol(IArgBad2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 68, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 69, 25))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 69, 36))
+}
+
+interface IArgBad3 {
+>IArgBad3 : Symbol(IArgBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 70, 1))
+
+    [Symbol.hasInstance](...rest: [any, any]): boolean;
+>[Symbol.hasInstance] : Symbol(IArgBad3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 72, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 73, 25))
+}
+
+interface IRetBad1 {
+>IRetBad1 : Symbol(IRetBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 74, 1))
+
+    [Symbol.hasInstance](value: any): unknown;
+>[Symbol.hasInstance] : Symbol(IRetBad1[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 76, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 77, 25))
+}
+
+interface IRetBad2 {
+>IRetBad2 : Symbol(IRetBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 78, 1))
+
+    [Symbol.hasInstance](value: any): number;
+>[Symbol.hasInstance] : Symbol(IRetBad2[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 80, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>value : Symbol(value, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 81, 25))
+}
+
+interface IRetBad3 {
+>IRetBad3 : Symbol(IRetBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 82, 1))
+
+    [Symbol.hasInstance](...rest: [any]): true | number;
+>[Symbol.hasInstance] : Symbol(IRetBad3[Symbol.hasInstance], Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 84, 20))
+>Symbol.hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>Symbol : Symbol(Symbol, Decl(lib.es5.d.ts, --, --), Decl(lib.es2015.symbol.d.ts, --, --), Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>hasInstance : Symbol(SymbolConstructor.hasInstance, Decl(lib.es2015.symbol.wellknown.d.ts, --, --))
+>rest : Symbol(rest, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 85, 25))
+}
+
+let x: any;
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+
+let iOk1: IOk1;
+>iOk1 : Symbol(iOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 89, 3))
+>IOk1 : Symbol(IOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 0, 0))
+
+let iOk2: IOk2;
+>iOk2 : Symbol(iOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 90, 3))
+>IOk2 : Symbol(IOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 2, 1))
+
+let iOk3: IOk3;
+>iOk3 : Symbol(iOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 91, 3))
+>IOk3 : Symbol(IOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 6, 1))
+
+let iArgOk1: IArgOk1;
+>iArgOk1 : Symbol(iArgOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 92, 3))
+>IArgOk1 : Symbol(IArgOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 10, 1))
+
+let iArgOk2: IArgOk2;
+>iArgOk2 : Symbol(iArgOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 93, 3))
+>IArgOk2 : Symbol(IArgOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 14, 1))
+
+let iArgOk3: IArgOk3;
+>iArgOk3 : Symbol(iArgOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 94, 3))
+>IArgOk3 : Symbol(IArgOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 18, 1))
+
+let iArgOk4: IArgOk4;
+>iArgOk4 : Symbol(iArgOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 95, 3))
+>IArgOk4 : Symbol(IArgOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 22, 1))
+
+let iArgOk5: IArgOk5;
+>iArgOk5 : Symbol(iArgOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 96, 3))
+>IArgOk5 : Symbol(IArgOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 26, 1))
+
+let iRetOk1: IRetOk1;
+>iRetOk1 : Symbol(iRetOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 97, 3))
+>IRetOk1 : Symbol(IRetOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 30, 1))
+
+let iRetOk2: IRetOk2;
+>iRetOk2 : Symbol(iRetOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 98, 3))
+>IRetOk2 : Symbol(IRetOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 34, 1))
+
+let iRetOk3: IRetOk3;
+>iRetOk3 : Symbol(iRetOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 99, 3))
+>IRetOk3 : Symbol(IRetOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 38, 1))
+
+let iRetOk4: IRetOk4;
+>iRetOk4 : Symbol(iRetOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 100, 3))
+>IRetOk4 : Symbol(IRetOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 42, 1))
+
+let iRetOk5: IRetOk5;
+>iRetOk5 : Symbol(iRetOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 101, 3))
+>IRetOk5 : Symbol(IRetOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 46, 1))
+
+let iBad1: IBad1;
+>iBad1 : Symbol(iBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 102, 3))
+>IBad1 : Symbol(IBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 50, 1))
+
+let iBad2: IBad2;
+>iBad2 : Symbol(iBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 103, 3))
+>IBad2 : Symbol(IBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 54, 1))
+
+let iBad3: IBad3;
+>iBad3 : Symbol(iBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 104, 3))
+>IBad3 : Symbol(IBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 58, 1))
+
+let iArgBad1: IArgBad1;
+>iArgBad1 : Symbol(iArgBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 105, 3))
+>IArgBad1 : Symbol(IArgBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 62, 1))
+
+let iArgBad2: IArgBad2;
+>iArgBad2 : Symbol(iArgBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 106, 3))
+>IArgBad2 : Symbol(IArgBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 66, 1))
+
+let iArgBad3: IArgBad3;
+>iArgBad3 : Symbol(iArgBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 107, 3))
+>IArgBad3 : Symbol(IArgBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 70, 1))
+
+let iRetBad1: IRetBad1;
+>iRetBad1 : Symbol(iRetBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 108, 3))
+>IRetBad1 : Symbol(IRetBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 74, 1))
+
+let iRetBad2: IRetBad2;
+>iRetBad2 : Symbol(iRetBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 109, 3))
+>IRetBad2 : Symbol(IRetBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 78, 1))
+
+let iRetBad3: IRetBad3;
+>iRetBad3 : Symbol(iRetBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 110, 3))
+>IRetBad3 : Symbol(IRetBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 82, 1))
+
+const rOk1 = x instanceof iOk1;
+>rOk1 : Symbol(rOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 111, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iOk1 : Symbol(iOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 89, 3))
+
+const rOk2 = x instanceof iOk2;
+>rOk2 : Symbol(rOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 112, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iOk2 : Symbol(iOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 90, 3))
+
+const rOk3 = x instanceof iOk3;
+>rOk3 : Symbol(rOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 113, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iOk3 : Symbol(iOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 91, 3))
+
+const rArgOk1 = x instanceof iArgOk1;
+>rArgOk1 : Symbol(rArgOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 114, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgOk1 : Symbol(iArgOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 92, 3))
+
+const rArgOk2 = x instanceof iArgOk2;
+>rArgOk2 : Symbol(rArgOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 115, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgOk2 : Symbol(iArgOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 93, 3))
+
+const rArgOk3 = x instanceof iArgOk3;
+>rArgOk3 : Symbol(rArgOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 116, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgOk3 : Symbol(iArgOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 94, 3))
+
+const rArgOk4 = x instanceof iArgOk4;
+>rArgOk4 : Symbol(rArgOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 117, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgOk4 : Symbol(iArgOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 95, 3))
+
+const rArgOk5 = x instanceof iArgOk5;
+>rArgOk5 : Symbol(rArgOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 118, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgOk5 : Symbol(iArgOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 96, 3))
+
+const rRetOk1 = x instanceof iRetOk1;
+>rRetOk1 : Symbol(rRetOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 119, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetOk1 : Symbol(iRetOk1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 97, 3))
+
+const rRetOk2 = x instanceof iRetOk2;
+>rRetOk2 : Symbol(rRetOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 120, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetOk2 : Symbol(iRetOk2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 98, 3))
+
+const rRetOk3 = x instanceof iRetOk3;
+>rRetOk3 : Symbol(rRetOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 121, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetOk3 : Symbol(iRetOk3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 99, 3))
+
+const rRetOk4 = x instanceof iRetOk4;
+>rRetOk4 : Symbol(rRetOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 122, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetOk4 : Symbol(iRetOk4, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 100, 3))
+
+const rRetOk5 = x instanceof iRetOk5;
+>rRetOk5 : Symbol(rRetOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 123, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetOk5 : Symbol(iRetOk5, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 101, 3))
+
+const rBad1 = x instanceof iBad1;
+>rBad1 : Symbol(rBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 124, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iBad1 : Symbol(iBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 102, 3))
+
+const rBad2 = x instanceof iBad2;
+>rBad2 : Symbol(rBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 125, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iBad2 : Symbol(iBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 103, 3))
+
+const rBad3 = x instanceof iBad3;
+>rBad3 : Symbol(rBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 126, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iBad3 : Symbol(iBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 104, 3))
+
+const rArgBad1 = x instanceof iArgBad1;
+>rArgBad1 : Symbol(rArgBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 127, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgBad1 : Symbol(iArgBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 105, 3))
+
+const rArgBad2 = x instanceof iArgBad2;
+>rArgBad2 : Symbol(rArgBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 128, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgBad2 : Symbol(iArgBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 106, 3))
+
+const rArgBad3 = x instanceof iArgBad3;
+>rArgBad3 : Symbol(rArgBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 129, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iArgBad3 : Symbol(iArgBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 107, 3))
+
+const rRetBad1 = x instanceof iRetBad1;
+>rRetBad1 : Symbol(rRetBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 130, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetBad1 : Symbol(iRetBad1, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 108, 3))
+
+const rRetBad2 = x instanceof iRetBad2;
+>rRetBad2 : Symbol(rRetBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 131, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetBad2 : Symbol(iRetBad2, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 109, 3))
+
+const rRetBad3 = x instanceof iRetBad3;
+>rRetBad3 : Symbol(rRetBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 132, 5))
+>x : Symbol(x, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 88, 3))
+>iRetBad3 : Symbol(iRetBad3, Decl(instanceofOperatorWithRHSImplementsSymbolHasInstance.ts, 110, 3))
+
